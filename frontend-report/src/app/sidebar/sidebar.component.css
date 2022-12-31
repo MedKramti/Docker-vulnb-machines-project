@@ -1,0 +1,17 @@
+div {
+  display: block;
+}
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 8px;
+  margin: 10px 0;
+}
