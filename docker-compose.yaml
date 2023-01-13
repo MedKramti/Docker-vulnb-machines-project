@@ -19,6 +19,8 @@ services:
 
   attacker:
     build: ./kali
+    volumes:
+    - ./kali_home:/home
     networks:
       my_network:
         ipv4_address: 172.20.0.200
