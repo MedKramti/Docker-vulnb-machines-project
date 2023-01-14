@@ -1,4 +1,12 @@
 services:
+  frontend:
+    build: ./frontend-report/dist
+    ports:
+      - 8080:8080
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.2
+    tty: true
   vulnerable1:
     image: tleemcjr/metasploitable2
     ports:
@@ -25,6 +33,7 @@ services:
       my_network:
         ipv4_address: 172.20.0.200
     tty: true
+
 
 networks:
   my_network:
