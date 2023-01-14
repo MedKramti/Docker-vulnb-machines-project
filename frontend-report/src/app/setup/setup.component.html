@@ -1,0 +1,121 @@
+<div class="code-title">docker-compose.yaml</div>
+<div class="code">
+  <ul>
+    <li class="fw-bold">services:</li>
+    <li class="fw-bold">vulnerable1:</li>
+    <li>
+      <ul>
+        <li>image: tleemcjr/metasploitable2</li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li>ports:</li>
+        <li>
+          <ul>
+            <li>- 8001:80</li>
+          </ul>
+        </li>
+        <li>networks:</li>
+        <li>
+          <ul>
+            <li>my_network:</li>
+            <li>
+              <ul>
+                <li>ipv4_address: 172.20.0.10</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>tty: true</li>
+      </ul>
+    </li>
+
+    <!-- Vulnerable 2-->
+    <li class="fw-bold">vulnerable2:</li>
+    <li>
+      <ul>
+        <li>image: sagikazarmark/dvwa</li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li>ports:</li>
+        <li>
+          <ul>
+            <li>- 8002:80</li>
+          </ul>
+        </li>
+        <li>networks:</li>
+        <li>
+          <ul>
+            <li>my_network:</li>
+            <li>
+              <ul>
+                <li>ipv4_address: 172.20.0.20</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>tty: true</li>
+      </ul>
+    </li>
+    <!-- Attacker -->
+    <li class="fw-bold">attacker:</li>
+    <li>
+      <ul>
+        <li>build: ./kali</li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li>networks:</li>
+        <li>
+          <ul>
+            <li>my_network:</li>
+            <li>
+              <ul>
+                <li>ipv4_address: 172.20.0.200</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>tty: true</li>
+      </ul>
+    </li>
+    <li class="fw-bold">networks:</li>
+    <li>
+      <ul>
+        <li>my_network:</li>
+        <li>
+          <ul>
+            <li>driver: bridge</li>
+            <li>name: myNetwork</li>
+            <li>ipam:</li>
+            <li>
+              <ul>
+                <li>driver: default</li>
+                <li>config:</li>
+                <li>
+                  <ul>
+                    <li>- subnet: 172.20.0.0/24</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="code-title mt-3">./kali/Dockerfile</div>
+<div class="code">
+  <ul>
+    <li>FROM kalilinux/kali-rolling</li>
+    <li>
+      RUN apt update; apt install -y hydra sqlmap nmap metasploit-framework
+    </li>
+  </ul>
+</div>
