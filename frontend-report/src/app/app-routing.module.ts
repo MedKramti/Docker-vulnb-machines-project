@@ -8,6 +8,7 @@ import { VsftpdComponent } from './senarios/vsftpd/vsftpd.component';
 import { SetupComponent } from './setup/setup.component';
 
 const routes: Routes = [
+  { path: '', component: SetupComponent },
   { path: 'setup', component: SetupComponent },
   { path: 'brute-force', component: BruteforceComponent },
   { path: 'vsftpd', component: VsftpdComponent },
