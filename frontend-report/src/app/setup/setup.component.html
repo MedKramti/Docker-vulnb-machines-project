@@ -2,6 +2,34 @@
 <div class="code">
   <ul>
     <li class="fw-bold">services:</li>
+    <li class="fw-bold">frontend:</li>
+    <li>
+      <ul>
+        <li>b uild: ./frontend-report/dist</li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li>ports:</li>
+        <li>
+          <ul>
+            <li>- 8080:8080</li>
+          </ul>
+        </li>
+        <li>networks:</li>
+        <li>
+          <ul>
+            <li>my_network:</li>
+            <li>
+              <ul>
+                <li>ipv4_address: 172.20.0.2</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>tty: true</li>
+      </ul>
+    </li>
     <li class="fw-bold">vulnerable1:</li>
     <li>
       <ul>
